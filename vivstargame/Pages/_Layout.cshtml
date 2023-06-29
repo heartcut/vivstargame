@@ -16,5 +16,14 @@
     @RenderBody()
 
     <script src="_framework/blazor.server.js"></script>
+    <!--below for the javascript-->
+    <script type="text/javascript">
+        window.getDimensions = function () {
+            return {
+                width: window.innerWidth,
+                height: window.innerHeight
+            };
+        };
+    </script>
 </body>
 </html>

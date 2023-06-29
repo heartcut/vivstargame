@@ -1,12 +1,21 @@
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
-//using vivstargame.Data;
+using vivstargame;
+using Microsoft.AspNetCore.SignalR;
+using vivstargame.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
+builder.Services.AddScoped<BrowserService>();
+builder.Services.AddControllersWithViews();
+builder.Services.AddSingleton<List<DataManager>>();
+
+
+// SignalR hub configuration
+builder.Services.AddSignalR();
 
 var app = builder.Build();
 
@@ -25,6 +34,9 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.MapBlazorHub();
+
+app.MapHub<MainHub>("/mainhub"); // Map your custom hub endpoint
+
 app.MapFallbackToPage("/_Host");
 
 app.Run();
