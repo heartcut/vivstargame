@@ -6,3 +6,5 @@ port forwarding on router
 xnginx settings
 
 appsetting settings or something.
+
+i test
