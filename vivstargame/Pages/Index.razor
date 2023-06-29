@@ -1,8 +1,18 @@
 ﻿@page "/"
+@inject NavigationManager navManager
 
-<PageTitle>Index</PageTitle>
+<div style="text-align:center;">
 
-<h1>Hello, world!</h1>
+    <div style="margin-top: 200px">this is the main page</div>
 
-Welcome to your new app.
+    <button @onclick="GoToLobbyPage" style="margin-top: 300px; background-color: #4CAF50; width: 100px; height: 80px; cursor: url(/Assets/rainbowcurse.png) -2 -2,auto;">play!</button>
+
+</div>
+
+@code{
+    void GoToLobbyPage()
+    {
+        navManager.NavigateTo("/lobbypage");
+    }
+}
 
