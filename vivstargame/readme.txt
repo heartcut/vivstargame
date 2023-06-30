@@ -7,4 +7,18 @@ xnginx settings
 
 appsetting settings or something.
 
-i test
+added builder.Services.AddScoped<BrowserService>();
+builder.Services.AddControllersWithViews();
+builder.Services.AddSingleton<List<DataManager>>();
+
+
+// SignalR hub configuration
+builder.Services.AddSignalR();
+
+app.MapBlazorHub();
+
+app.MapHub<MainHub>("/mainhub"); // Map your custom hub endpoint
+
+to program.cs
+
+need to change some stuff in launch settings for port stuff?
